@@ -1,0 +1,36 @@
+{
+	"schemaVersion": 1,
+	"id": "wonderwhale",
+	"version": "${version}",
+	"name": "WonderWhale",
+	"description": "WonderWhale is a Minecraft Client made by kisqra, heedi and zane2b2t for Minecraft Anarchy and Crystal PvP.",
+	"authors": [
+		"kisqra",
+		"heedi",
+		"Zane2b2t"
+	],
+	"contact": {
+		"sources": "https://github.com/Romdotpng/WonderWhale-ng"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/wonderwhale/icon.png",
+	"accessWidener": "wonderwhale.accesswidener",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"dev.twerklife.WonderWhale"
+		]
+	},
+	"mixins": [
+		"wonderwhale.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.9",
+		"minecraft": "~1.21.1",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
