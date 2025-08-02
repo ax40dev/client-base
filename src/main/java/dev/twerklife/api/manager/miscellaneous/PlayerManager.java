@@ -1,6 +1,6 @@
 package dev.twerklife.api.manager.miscellaneous;
 
-import dev.twerklife.WonderWhale;
+import dev.twerklife.essenti4ls;
 import dev.twerklife.api.manager.event.EventListener;
 import dev.twerklife.api.utilities.IMinecraft;
 import dev.twerklife.client.events.EventPacketSend;
@@ -15,7 +15,7 @@ public class PlayerManager implements IMinecraft, EventListener {
     private int receivedPackets;
 
     public PlayerManager() {
-        WonderWhale.EVENT_MANAGER.register(this);
+        essenti4ls.EVENT_MANAGER.register(this);
     }
 
     @Override

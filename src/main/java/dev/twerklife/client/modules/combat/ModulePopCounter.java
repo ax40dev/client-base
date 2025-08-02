@@ -1,13 +1,12 @@
 package dev.twerklife.client.modules.combat;
 
-import dev.twerklife.WonderWhale;
+import dev.twerklife.essenti4ls;
 import dev.twerklife.api.manager.module.Module;
 import dev.twerklife.api.manager.module.RegisterModule;
 import dev.twerklife.api.utilities.ChatUtils;
 import dev.twerklife.client.events.EventPacketReceive;
 import dev.twerklife.client.modules.client.ModuleCommands;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.network.packet.s2c.play.EntityStatusS2CPacket;
 
@@ -37,7 +36,7 @@ public class ModulePopCounter extends Module {
             if (entity == mc.player) {
                 return;
             }
-            if (WonderWhale.FRIEND_MANAGER.isFriend(entity.getName().getString())) {
+            if (essenti4ls.FRIEND_MANAGER.isFriend(entity.getName().getString())) {
                 ChatUtils.sendMessage(ModuleCommands.getFirstColor() + entity.getName().getString() + " popped " + ModuleCommands.getSecondColor() + count + ModuleCommands.getFirstColor() + " totems! you should go help them");
             } else {
                 ChatUtils.sendMessage(ModuleCommands.getFirstColor() + entity.getName().getString() + " popped " + ModuleCommands.getSecondColor() + count + ModuleCommands.getFirstColor() + " totems!");

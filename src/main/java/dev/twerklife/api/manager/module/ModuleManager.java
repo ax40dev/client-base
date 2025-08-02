@@ -1,7 +1,7 @@
 package dev.twerklife.api.manager.module;
 
 import com.mojang.blaze3d.systems.RenderSystem;
-import dev.twerklife.WonderWhale;
+import dev.twerklife.essenti4ls;
 import dev.twerklife.api.manager.event.EventListener;
 import dev.twerklife.api.utilities.IMinecraft;
 import dev.twerklife.client.events.*;
@@ -25,7 +25,7 @@ public class ModuleManager implements IMinecraft, EventListener {
     private final ArrayList<Module> modules;
 
     public ModuleManager() {
-        WonderWhale.EVENT_MANAGER.register(this);
+        essenti4ls.EVENT_MANAGER.register(this);
         this.modules = new ArrayList<>();
         // write modules here
 

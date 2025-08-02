@@ -1,6 +1,6 @@
 package dev.twerklife.client.commands;
 
-import dev.twerklife.WonderWhale;
+import dev.twerklife.essenti4ls;
 import dev.twerklife.api.manager.command.Command;
 import dev.twerklife.api.manager.command.RegisterCommand;
 import dev.twerklife.api.manager.module.Module;
@@ -14,7 +14,7 @@ public class CommandToggle extends Command {
     public void onCommand(String[] args) {
         if (args.length == 1) {
             boolean found = false;
-            for (Module module : WonderWhale.MODULE_MANAGER.getModules()) {
+            for (Module module : essenti4ls.MODULE_MANAGER.getModules()) {
                 if (!module.getName().equalsIgnoreCase(args[0])) continue;
                 module.toggle(false);
                 ChatUtils.sendMessage(ModuleCommands.getSecondColor() + "" + Formatting.BOLD + module.getTag() + ModuleCommands.getFirstColor() + " has been toggled " + (module.isToggled() ? Formatting.GREEN + "on" : Formatting.RED + "off") + ModuleCommands.getFirstColor() + "!", "Toggle");

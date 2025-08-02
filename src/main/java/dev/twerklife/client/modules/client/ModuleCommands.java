@@ -12,9 +12,7 @@ public class ModuleCommands extends Module {
     public static ModuleCommands INSTANCE;
     public final ValueCategory watermarkCategory = new ValueCategory("Watermark", "The category for the Watermark.");
     public final ValueEnum watermarkMode = new ValueEnum("WatermarkMode", "Mode", "The mode for the watermark.", this.watermarkCategory, WatermarkModes.Normal);
-    public final ValueString watermarkText = new ValueString("WatermarkText", "Text", "The watermark text.", this.watermarkCategory, "WonderWhale");
-    public final ValueString firstSymbol = new ValueString("WatermarkFirstSymbol", "First Symbol", "The first symbol on the watermark.", this.watermarkCategory, "[");
-    public final ValueString secondSymbol = new ValueString("WatermarkSecondSymbol", "Second Symbol", "The second symbol on the watermark.", this.watermarkCategory, "]");
+    public final ValueString watermarkText = new ValueString("WatermarkText", "Text", "The watermark text.", this.watermarkCategory, "[⌀]");
     public final ValueCategory firstWatermarkColorCategory = new ValueCategory("First Mark Color", "The colors for the first color on the Watermark.");
     public final ValueEnum firstWatermarkColor = new ValueEnum("FirstWatermarkColor", "Color", "The color of the first watermark color.", this.firstWatermarkColorCategory, ColorModes.Purple);
     public final ValueEnum firstWatermarkBrightness = new ValueEnum("FirstWatermarkBrightness", "Brightness", "The brightness of the second watermark color.", this.firstWatermarkColorCategory, LightModes.Light);

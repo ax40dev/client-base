@@ -1,6 +1,6 @@
 package dev.twerklife.client.modules.client;
 
-import dev.twerklife.WonderWhale;
+import dev.twerklife.essenti4ls;
 import dev.twerklife.api.manager.module.Module;
 import dev.twerklife.api.manager.module.RegisterModule;
 import dev.twerklife.api.utilities.ColorUtils;
@@ -114,7 +114,7 @@ public class ModuleHUD extends Module {
         // ArrayList
         if (this.arrayList.getValue()) {
             modules.clear();
-            for (Module module : WonderWhale.MODULE_MANAGER.getModules()) {
+            for (Module module : essenti4ls.MODULE_MANAGER.getModules()) {
                 if (module.isToggled() && module.isDrawn()) {
                     modules.add(module);
                 }

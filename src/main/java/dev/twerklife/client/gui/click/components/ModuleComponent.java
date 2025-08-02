@@ -1,6 +1,6 @@
 package dev.twerklife.client.gui.click.components;
 
-import dev.twerklife.WonderWhale;
+import dev.twerklife.essenti4ls;
 import dev.twerklife.api.manager.module.Module;
 import dev.twerklife.api.utilities.ColorUtils;
 import dev.twerklife.api.utilities.RenderUtils;
@@ -72,7 +72,7 @@ public class ModuleComponent extends Component {
             this.colorMap.put(i, ColorUtils.wave(Color.WHITE, ModuleGUI.INSTANCE.fadeOffset.getValue().intValue(), i * 2 + 10));
         }
         if (this.module.isToggled() && ModuleGUI.INSTANCE.rectEnabled.getValue()) {
-            RenderUtils.drawRect(context.getMatrices(),(float)this.getX() + 0.4f, (float)this.getY() - 0.8f, (float)(this.getX() + this.getWidth()) - 0.4f, (float)this.getY() + 14.1f, WonderWhale.CLICK_GUI.getColor());
+            RenderUtils.drawRect(context.getMatrices(),(float)this.getX() + 0.4f, (float)this.getY() - 0.8f, (float)(this.getX() + this.getWidth()) - 0.4f, (float)this.getY() + 14.1f, essenti4ls.CLICK_GUI.getColor());
         }
         context.drawTextWithShadow(mc.textRenderer, (!this.module.isToggled() ? Formatting.GRAY : "") + this.module.getTag(), this.getX() + 3, this.getY() + 3, ModuleGUI.INSTANCE.fadeText.getValue() ? this.colorMap.get(MathHelper.clamp(this.getY() + 3, 0, height)).getRGB() : -1);
         for (Component component : this.components) {

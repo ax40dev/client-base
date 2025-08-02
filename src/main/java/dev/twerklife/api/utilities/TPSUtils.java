@@ -1,6 +1,6 @@
 package dev.twerklife.api.utilities;
 
-import dev.twerklife.WonderWhale;
+import dev.twerklife.essenti4ls;
 import dev.twerklife.api.manager.event.EventListener;
 import dev.twerklife.client.events.EventPacketReceive;
 import net.minecraft.network.packet.s2c.play.WorldTimeUpdateS2CPacket;
@@ -15,7 +15,7 @@ public class TPSUtils implements EventListener {
 
     public TPSUtils() {
         Arrays.fill(tickRates, 0.0f);
-        WonderWhale.EVENT_MANAGER.register(this);
+        essenti4ls.EVENT_MANAGER.register(this);
     }
 
     public static float getTickRate() {

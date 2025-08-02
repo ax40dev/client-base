@@ -17,10 +17,10 @@ import org.slf4j.LoggerFactory;
 
 import java.awt.*;
 
-public class WonderWhale implements ModInitializer {
-    public static final String NAME = "WonderWhale";
-    public static final String VERSION = "190622";
-    public static final Logger LOGGER = LoggerFactory.getLogger("WonderWhale");
+public class essenti4ls implements ModInitializer {
+    public static final String NAME = "essenti4ls";
+    public static final String VERSION = "0.0.1";
+    public static final Logger LOGGER = LoggerFactory.getLogger("essenti4ls");
 
     public static Color COLOR_CLIPBOARD;
     public static CommandManager COMMAND_MANAGER;
@@ -36,7 +36,7 @@ public class WonderWhale implements ModInitializer {
     @Override
     public void onInitialize() {
         long startTime = System.currentTimeMillis();
-        LOGGER.info("Initialization process for WonderWhale v190622 has started!");
+        LOGGER.info("Initialization process for essenti4ls 0.0.1 has started!");
 
         EVENT_MANAGER = new EventManager();
         COMMAND_MANAGER = new CommandManager();
@@ -52,6 +52,6 @@ public class WonderWhale implements ModInitializer {
         new TPSUtils();
 
         long endTime = System.currentTimeMillis();
-        LOGGER.info("Initialization process for WonderWhale v190622 has finished! Took {} ms", endTime - startTime);
+        LOGGER.info("Initialization process for essenti4ls 0.0.1 has finished! Took {} ms", endTime - startTime);
     }
 }

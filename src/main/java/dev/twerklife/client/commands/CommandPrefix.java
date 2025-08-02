@@ -1,6 +1,6 @@
 package dev.twerklife.client.commands;
 
-import dev.twerklife.WonderWhale;
+import dev.twerklife.essenti4ls;
 import dev.twerklife.api.manager.command.Command;
 import dev.twerklife.api.manager.command.RegisterCommand;
 import dev.twerklife.api.utilities.ChatUtils;
@@ -14,8 +14,8 @@ public class CommandPrefix extends Command {
             if (args[0].length() > 2) {
                 ChatUtils.sendMessage("The prefix must not be longer than 2 characters.", "Prefix");
             } else {
-                WonderWhale.COMMAND_MANAGER.setPrefix(args[0]);
-                ChatUtils.sendMessage("Prefix set to \"" + ModuleCommands.getSecondColor() + WonderWhale.COMMAND_MANAGER.getPrefix() + ModuleCommands.getFirstColor() + "\"!", "Prefix");
+                essenti4ls.COMMAND_MANAGER.setPrefix(args[0]);
+                ChatUtils.sendMessage("Prefix set to \"" + ModuleCommands.getSecondColor() + essenti4ls.COMMAND_MANAGER.getPrefix() + ModuleCommands.getFirstColor() + "\"!", "Prefix");
             }
         } else {
             this.sendSyntax();

@@ -1,6 +1,6 @@
 package dev.twerklife.client.elements;
 
-import dev.twerklife.WonderWhale;
+import dev.twerklife.essenti4ls;
 import dev.twerklife.api.manager.element.Element;
 import dev.twerklife.api.manager.element.RegisterElement;
 import dev.twerklife.client.events.EventRender2D;
@@ -25,7 +25,7 @@ public class ElementFriends extends Element {
     public void onRender2D(EventRender2D event) {
         super.onRender2D(event);
         ArrayList<PlayerEntity> friends = mc.world.getPlayers().stream()
-                .filter(p -> WonderWhale.FRIEND_MANAGER.isFriend(p.getName().getString()))
+                .filter(p -> essenti4ls.FRIEND_MANAGER.isFriend(p.getName().getString()))
                 .sorted(Comparator.comparing(player -> player.getName().getString()))
                 .collect(Collectors.toCollection(ArrayList::new));
         this.frame.setWidth(friends.isEmpty() ? mc.textRenderer.getWidth(this.name.getValue()) : mc.textRenderer.getWidth(friends.get(0).getName()));

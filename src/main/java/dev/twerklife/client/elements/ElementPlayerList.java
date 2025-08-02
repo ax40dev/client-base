@@ -1,6 +1,6 @@
 package dev.twerklife.client.elements;
 
-import dev.twerklife.WonderWhale;
+import dev.twerklife.essenti4ls;
 import dev.twerklife.api.manager.element.Element;
 import dev.twerklife.api.manager.element.RegisterElement;
 import dev.twerklife.client.events.EventRender2D;
@@ -32,13 +32,13 @@ public class ElementPlayerList extends Element {
         int i = 0;
         for (PlayerEntity player : players.stream().sorted(Comparator.comparing(p -> mc.player.distanceTo(p))).collect(Collectors.toList())) {
             if (i + 1 > this.maxPlayers.getValue().intValue()) continue;
-            event.getContext().drawTextWithShadow(mc.textRenderer, "" + this.getHealthColor(player) + (int)(player.getHealth() + player.getAbsorptionAmount()) + " " + (WonderWhale.FRIEND_MANAGER.isFriend(player.getName().getString()) ? Formatting.AQUA : Formatting.RESET) + player.getName() + " " + this.getDistanceColor(player) + (int)mc.player.distanceTo(player), (int) this.frame.getX(), (int) (this.frame.getY() + (float)(10 * i)), ModuleColor.getColor().getRGB());
+            event.getContext().drawTextWithShadow(mc.textRenderer, "" + this.getHealthColor(player) + (int)(player.getHealth() + player.getAbsorptionAmount()) + " " + (essenti4ls.FRIEND_MANAGER.isFriend(player.getName().getString()) ? Formatting.AQUA : Formatting.RESET) + player.getName() + " " + this.getDistanceColor(player) + (int)mc.player.distanceTo(player), (int) this.frame.getX(), (int) (this.frame.getY() + (float)(10 * i)), ModuleColor.getColor().getRGB());
             ++i;
         }
         float longestName = 0.0f;
         for (PlayerEntity entityPlayer : players) {
             StringBuilder stringBuilder = new StringBuilder().append("").append(this.getHealthColor(entityPlayer)).append((int)(entityPlayer.getHealth() + entityPlayer.getAbsorptionAmount())).append(" ");
-            Formatting chatFormatting = WonderWhale.FRIEND_MANAGER.isFriend(entityPlayer.getName().getString()) ? Formatting.AQUA : Formatting.RESET;
+            Formatting chatFormatting = essenti4ls.FRIEND_MANAGER.isFriend(entityPlayer.getName().getString()) ? Formatting.AQUA : Formatting.RESET;
             String text = stringBuilder.append(chatFormatting).append(entityPlayer.getName()).append(" ").append(this.getDistanceColor(entityPlayer)).append((int)mc.player.distanceTo(entityPlayer)).toString();
             if (!(mc.textRenderer.getWidth(text) > longestName)) continue;
             longestName = mc.textRenderer.getWidth(text);

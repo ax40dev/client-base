@@ -13,7 +13,7 @@ public class CommandFolder extends Command {
     @Override
     public void onCommand(String[] args) {
         try {
-            Desktop.getDesktop().open(new File("WonderWhale"));
+            Desktop.getDesktop().open(new File("essenti4ls"));
             ChatUtils.sendMessage("Successfully opened configuration folder.", "Folder");
         }
         catch (IOException exception) {

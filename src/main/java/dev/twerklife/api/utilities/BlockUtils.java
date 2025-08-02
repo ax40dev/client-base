@@ -1,6 +1,6 @@
 package dev.twerklife.api.utilities;
 
-import dev.twerklife.WonderWhale;
+import dev.twerklife.essenti4ls;
 import dev.twerklife.client.events.EventMotion;
 import dev.twerklife.client.modules.client.ModuleRotations;
 import net.minecraft.block.Blocks;
@@ -29,7 +29,7 @@ public class BlockUtils implements IMinecraft {
         if (getPlaceableSide(position) == null) {
             return;
         }
-        if (WonderWhale.MODULE_MANAGER.isModuleEnabled("Rotations")) {
+        if (essenti4ls.MODULE_MANAGER.isModuleEnabled("Rotations")) {
             float[] rot = RotationUtils.getSmoothRotations(RotationUtils.getRotations(position.getX(), position.getY(), position.getZ()), ModuleRotations.INSTANCE.smoothness.getValue().intValue());
             RotationUtils.rotate(event, rot);
         }

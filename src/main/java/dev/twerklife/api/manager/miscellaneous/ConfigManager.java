@@ -1,7 +1,7 @@
 package dev.twerklife.api.manager.miscellaneous;
 
 import com.google.gson.*;
-import dev.twerklife.WonderWhale;
+import dev.twerklife.essenti4ls;
 import dev.twerklife.api.manager.element.Element;
 import dev.twerklife.api.manager.friend.Friend;
 import dev.twerklife.api.manager.module.Module;
@@ -29,22 +29,22 @@ public class ConfigManager {
 
     public void save() {
         try {
-            if (!Files.exists(Paths.get("WonderWhale/"))) {
-                Files.createDirectories(Paths.get("WonderWhale/"));
+            if (!Files.exists(Paths.get("essenti4ls/"))) {
+                Files.createDirectories(Paths.get("essenti4ls/"));
             }
-            if (!Files.exists(Paths.get("WonderWhale/Modules/"))) {
-                Files.createDirectories(Paths.get("WonderWhale/Modules/"));
+            if (!Files.exists(Paths.get("essenti4ls/Modules/"))) {
+                Files.createDirectories(Paths.get("essenti4ls/Modules/"));
             }
-            if (!Files.exists(Paths.get("WonderWhale/Elements/"))) {
-                Files.createDirectories(Paths.get("WonderWhale/Elements/"));
+            if (!Files.exists(Paths.get("essenti4ls/Elements/"))) {
+                Files.createDirectories(Paths.get("essenti4ls/Elements/"));
             }
-            if (!Files.exists(Paths.get("WonderWhale/Client/"))) {
-                Files.createDirectories(Paths.get("WonderWhale/Client/"));
+            if (!Files.exists(Paths.get("essenti4ls/Client/"))) {
+                Files.createDirectories(Paths.get("essenti4ls/Client/"));
             }
             for (Module.Category category : Module.Category.values()) {
-                if (category == Module.Category.HUD || Files.exists(Paths.get("WonderWhale/Modules/" + category.getName() + "/")))
+                if (category == Module.Category.HUD || Files.exists(Paths.get("essenti4ls/Modules/" + category.getName() + "/")))
                     continue;
-                Files.createDirectories(Paths.get("WonderWhale/Modules/" + category.getName() + "/"));
+                Files.createDirectories(Paths.get("essenti4ls/Modules/" + category.getName() + "/"));
             }
             this.saveModules();
             this.saveElements();
@@ -60,16 +60,16 @@ public class ConfigManager {
     }
 
     public void loadModules() throws IOException {
-        for (Module module : WonderWhale.MODULE_MANAGER.getModules()) {
+        for (Module module : essenti4ls.MODULE_MANAGER.getModules()) {
             JsonObject moduleJson;
-            if (!Files.exists(Paths.get("WonderWhale/Modules/" + module.getCategory().getName() + "/" + module.getName() + ".json")))
+            if (!Files.exists(Paths.get("essenti4ls/Modules/" + module.getCategory().getName() + "/" + module.getName() + ".json")))
                 continue;
-            InputStream stream = Files.newInputStream(Paths.get("WonderWhale/Modules/" + module.getCategory().getName() + "/" + module.getName() + ".json"));
+            InputStream stream = Files.newInputStream(Paths.get("essenti4ls/Modules/" + module.getCategory().getName() + "/" + module.getName() + ".json"));
             try {
                 moduleJson = new JsonParser().parse(new InputStreamReader(stream)).getAsJsonObject();
             } catch (IllegalStateException exception) {
                 exception.printStackTrace();
-                WonderWhale.LOGGER.error(module.getName());
+                essenti4ls.LOGGER.error(module.getName());
                 continue;
             }
             if (moduleJson.get("Name") == null || moduleJson.get("Status") == null) continue;
@@ -83,12 +83,12 @@ public class ConfigManager {
     }
 
     public void saveModules() throws IOException {
-        for (Module module : WonderWhale.MODULE_MANAGER.getModules()) {
-            if (Files.exists(Paths.get("WonderWhale/Modules/" + module.getCategory().getName() + "/" + module.getName() + ".json"))) {
-                File file = new File("WonderWhale/Modules/" + module.getCategory().getName() + "/" + module.getName() + ".json");
+        for (Module module : essenti4ls.MODULE_MANAGER.getModules()) {
+            if (Files.exists(Paths.get("essenti4ls/Modules/" + module.getCategory().getName() + "/" + module.getName() + ".json"))) {
+                File file = new File("essenti4ls/Modules/" + module.getCategory().getName() + "/" + module.getName() + ".json");
                 file.delete();
             }
-            Files.createFile(Paths.get("WonderWhale/Modules/" + module.getCategory().getName() + "/" + module.getName() + ".json"));
+            Files.createFile(Paths.get("essenti4ls/Modules/" + module.getCategory().getName() + "/" + module.getName() + ".json"));
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
             JsonObject moduleJson = new JsonObject();
             JsonObject valueJson = new JsonObject();
@@ -96,22 +96,22 @@ public class ConfigManager {
             moduleJson.add("Status", new JsonPrimitive(module.isToggled()));
             this.saveValues(valueJson, module.getValues());
             moduleJson.add("Values", valueJson);
-            OutputStreamWriter writer = new OutputStreamWriter(new FileOutputStream("WonderWhale/Modules/" + module.getCategory().getName() + "/" + module.getName() + ".json"), StandardCharsets.UTF_8);
+            OutputStreamWriter writer = new OutputStreamWriter(new FileOutputStream("essenti4ls/Modules/" + module.getCategory().getName() + "/" + module.getName() + ".json"), StandardCharsets.UTF_8);
             writer.write(gson.toJson(new JsonParser().parse(moduleJson.toString())));
             writer.close();
         }
     }
 
     public void loadElements() throws IOException {
-        for (Element element : WonderWhale.ELEMENT_MANAGER.getElements()) {
+        for (Element element : essenti4ls.ELEMENT_MANAGER.getElements()) {
             JsonObject elementJson;
-            if (!Files.exists(Paths.get("WonderWhale/Elements/" + element.getName() + ".json"))) continue;
-            InputStream stream = Files.newInputStream(Paths.get("WonderWhale/Elements/" + element.getName() + ".json"));
+            if (!Files.exists(Paths.get("essenti4ls/Elements/" + element.getName() + ".json"))) continue;
+            InputStream stream = Files.newInputStream(Paths.get("essenti4ls/Elements/" + element.getName() + ".json"));
             try {
                 elementJson = new JsonParser().parse(new InputStreamReader(stream)).getAsJsonObject();
             } catch (IllegalStateException exception) {
                 exception.printStackTrace();
-                WonderWhale.LOGGER.error(element.getName());
+                essenti4ls.LOGGER.error(element.getName());
                 continue;
             }
             if (elementJson.get("Name") == null || elementJson.get("Status") == null || elementJson.get("Positions") == null)
@@ -131,12 +131,12 @@ public class ConfigManager {
     }
 
     public void saveElements() throws IOException {
-        for (Element element : WonderWhale.ELEMENT_MANAGER.getElements()) {
-            if (Files.exists(Paths.get("WonderWhale/Elements/" + element.getName() + ".json"))) {
-                File file = new File("WonderWhale/Elements/" + element.getName() + ".json");
+        for (Element element : essenti4ls.ELEMENT_MANAGER.getElements()) {
+            if (Files.exists(Paths.get("essenti4ls/Elements/" + element.getName() + ".json"))) {
+                File file = new File("essenti4ls/Elements/" + element.getName() + ".json");
                 file.delete();
             }
-            Files.createFile(Paths.get("WonderWhale/Elements/" + element.getName() + ".json"));
+            Files.createFile(Paths.get("essenti4ls/Elements/" + element.getName() + ".json"));
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
             JsonObject elementJson = new JsonObject();
             JsonObject valueJson = new JsonObject();
@@ -148,7 +148,7 @@ public class ConfigManager {
             positionJson.add("Y", new JsonPrimitive(element.frame.getY()));
             elementJson.add("Values", valueJson);
             elementJson.add("Positions", positionJson);
-            OutputStreamWriter writer = new OutputStreamWriter(new FileOutputStream("WonderWhale/Elements/" + element.getName() + ".json"), StandardCharsets.UTF_8);
+            OutputStreamWriter writer = new OutputStreamWriter(new FileOutputStream("essenti4ls/Elements/" + element.getName() + ".json"), StandardCharsets.UTF_8);
             writer.write(gson.toJson(new JsonParser().parse(elementJson.toString())));
             writer.close();
         }
@@ -231,60 +231,60 @@ public class ConfigManager {
     }
 
     public void loadPrefix() throws IOException {
-        if (!Files.exists(Paths.get("WonderWhale/Client/Prefix.json"))) {
+        if (!Files.exists(Paths.get("essenti4ls/Client/Prefix.json"))) {
             return;
         }
-        InputStream stream = Files.newInputStream(Paths.get("WonderWhale/Client/Prefix.json"));
+        InputStream stream = Files.newInputStream(Paths.get("essenti4ls/Client/Prefix.json"));
         JsonObject prefixJson = new JsonParser().parse(new InputStreamReader(stream)).getAsJsonObject();
         if (prefixJson.get("Prefix") == null) {
             return;
         }
-        WonderWhale.COMMAND_MANAGER.setPrefix(prefixJson.get("Prefix").getAsString());
+        essenti4ls.COMMAND_MANAGER.setPrefix(prefixJson.get("Prefix").getAsString());
         stream.close();
     }
 
     public void savePrefix() throws IOException {
-        if (Files.exists(Paths.get("WonderWhale/Client/Prefix.json"))) {
-            File file = new File("WonderWhale/Client/Prefix.json");
+        if (Files.exists(Paths.get("essenti4ls/Client/Prefix.json"))) {
+            File file = new File("essenti4ls/Client/Prefix.json");
             file.delete();
         }
-        Files.createFile(Paths.get("WonderWhale/Client/Prefix.json"));
+        Files.createFile(Paths.get("essenti4ls/Client/Prefix.json"));
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         JsonObject prefixJson = new JsonObject();
-        prefixJson.add("Prefix", new JsonPrimitive(WonderWhale.COMMAND_MANAGER.getPrefix()));
-        OutputStreamWriter writer = new OutputStreamWriter(new FileOutputStream("WonderWhale/Client/Prefix.json"), StandardCharsets.UTF_8);
+        prefixJson.add("Prefix", new JsonPrimitive(essenti4ls.COMMAND_MANAGER.getPrefix()));
+        OutputStreamWriter writer = new OutputStreamWriter(new FileOutputStream("essenti4ls/Client/Prefix.json"), StandardCharsets.UTF_8);
         writer.write(gson.toJson(new JsonParser().parse(prefixJson.toString())));
         writer.close();
     }
 
     public void loadFriends() throws IOException {
-        if (!Files.exists(Paths.get("WonderWhale/Client/Friends.json"))) {
+        if (!Files.exists(Paths.get("essenti4ls/Client/Friends.json"))) {
             return;
         }
-        InputStream stream = Files.newInputStream(Paths.get("WonderWhale/Client/Friends.json"));
+        InputStream stream = Files.newInputStream(Paths.get("essenti4ls/Client/Friends.json"));
         JsonObject mainObject = new JsonParser().parse(new InputStreamReader(stream)).getAsJsonObject();
         if (mainObject.get("Friends") == null) {
             return;
         }
         JsonArray friendArray = mainObject.get("Friends").getAsJsonArray();
-        friendArray.forEach(friend -> WonderWhale.FRIEND_MANAGER.addFriend(friend.getAsString()));
+        friendArray.forEach(friend -> essenti4ls.FRIEND_MANAGER.addFriend(friend.getAsString()));
         stream.close();
     }
 
     public void saveFriends() throws IOException {
-        if (Files.exists(Paths.get("WonderWhale/Client/Friends.json"))) {
-            File file = new File("WonderWhale/Client/Friends.json");
+        if (Files.exists(Paths.get("essenti4ls/Client/Friends.json"))) {
+            File file = new File("essenti4ls/Client/Friends.json");
             file.delete();
         }
-        Files.createFile(Paths.get("WonderWhale/Client/Friends.json"));
+        Files.createFile(Paths.get("essenti4ls/Client/Friends.json"));
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         JsonObject mainObject = new JsonObject();
         JsonArray friendArray = new JsonArray();
-        for (Friend friend : WonderWhale.FRIEND_MANAGER.getFriends()) {
+        for (Friend friend : essenti4ls.FRIEND_MANAGER.getFriends()) {
             friendArray.add(friend.getName());
         }
         mainObject.add("Friends", friendArray);
-        OutputStreamWriter writer = new OutputStreamWriter(new FileOutputStream("WonderWhale/Client/Friends.json"), StandardCharsets.UTF_8);
+        OutputStreamWriter writer = new OutputStreamWriter(new FileOutputStream("essenti4ls/Client/Friends.json"), StandardCharsets.UTF_8);
         writer.write(gson.toJson(new JsonParser().parse(mainObject.toString())));
         writer.close();
     }
@@ -293,7 +293,7 @@ public class ConfigManager {
             extends Thread {
         @Override
         public void run() {
-            WonderWhale.CONFIG_MANAGER.save();
+            essenti4ls.CONFIG_MANAGER.save();
         }
     }
 }

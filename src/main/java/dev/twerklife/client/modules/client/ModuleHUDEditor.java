@@ -1,6 +1,6 @@
 package dev.twerklife.client.modules.client;
 
-import dev.twerklife.WonderWhale;
+import dev.twerklife.essenti4ls;
 import dev.twerklife.api.manager.module.Module;
 import dev.twerklife.api.manager.module.RegisterModule;
 import net.minecraft.util.Formatting;
@@ -20,7 +20,7 @@ public class ModuleHUDEditor extends Module {
             this.disable(false);
             return;
         }
-        mc.setScreen(WonderWhale.HUD_EDITOR);
+        mc.setScreen(essenti4ls.HUD_EDITOR);
     }
 
     public Formatting getSecondColor() {

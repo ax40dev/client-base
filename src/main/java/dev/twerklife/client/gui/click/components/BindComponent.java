@@ -1,6 +1,6 @@
 package dev.twerklife.client.gui.click.components;
 
-import dev.twerklife.WonderWhale;
+import dev.twerklife.essenti4ls;
 import dev.twerklife.api.manager.event.EventListener;
 import dev.twerklife.client.events.EventKey;
 import dev.twerklife.client.gui.click.manage.Component;
@@ -16,7 +16,7 @@ public class BindComponent extends Component implements EventListener {
 
     public BindComponent(ValueBind value, int offset, Frame parent) {
         super(offset, parent);
-        WonderWhale.EVENT_MANAGER.register(this);
+        essenti4ls.EVENT_MANAGER.register(this);
         this.value = value;
     }
 

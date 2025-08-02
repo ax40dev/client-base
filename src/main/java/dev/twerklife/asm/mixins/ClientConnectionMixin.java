@@ -1,6 +1,6 @@
 package dev.twerklife.asm.mixins;
 
-import dev.twerklife.WonderWhale;
+import dev.twerklife.essenti4ls;
 import dev.twerklife.client.events.EventLogin;
 import dev.twerklife.client.events.EventLogout;
 import dev.twerklife.client.events.EventPacketReceive;
@@ -21,10 +21,10 @@ public class ClientConnectionMixin {
     public void injectSend(Packet<?> packet, CallbackInfo ci) {
         if (packet instanceof LoginHelloC2SPacket) {
             EventLogin event = new EventLogin();
-            WonderWhale.EVENT_MANAGER.call(event);
+            essenti4ls.EVENT_MANAGER.call(event);
         }
         EventPacketSend event = new EventPacketSend(packet);
-        WonderWhale.EVENT_MANAGER.call(event);
+        essenti4ls.EVENT_MANAGER.call(event);
         if (event.isCanceled()) {
             ci.cancel();
         }
@@ -34,10 +34,10 @@ public class ClientConnectionMixin {
     public void injectChannelRead0(ChannelHandlerContext channelHandlerContext, Packet<?> packet, CallbackInfo ci) {
         if (packet instanceof DisconnectS2CPacket) {
             EventLogout event = new EventLogout();
-            WonderWhale.EVENT_MANAGER.call(event);
+            essenti4ls.EVENT_MANAGER.call(event);
         }
         EventPacketReceive event = new EventPacketReceive(packet);
-        WonderWhale.EVENT_MANAGER.call(event);
+        essenti4ls.EVENT_MANAGER.call(event);
         if (event.isCanceled()) {
             ci.cancel();
         }

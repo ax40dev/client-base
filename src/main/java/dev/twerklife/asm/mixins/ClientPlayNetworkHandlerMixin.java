@@ -1,6 +1,6 @@
 package dev.twerklife.asm.mixins;
 
-import dev.twerklife.WonderWhale;
+import dev.twerklife.essenti4ls;
 import dev.twerklife.client.events.EventChatSend;
 import net.minecraft.client.network.ClientPlayNetworkHandler;
 import org.spongepowered.asm.mixin.Mixin;
@@ -13,7 +13,7 @@ public class ClientPlayNetworkHandlerMixin {
     @Inject(method = "sendChatMessage", at = @At("HEAD"), cancellable = true)
     private void onSendChatMessage(String message, CallbackInfo ci) {
         EventChatSend event = new EventChatSend(message);
-        WonderWhale.EVENT_MANAGER.call(event);
+        essenti4ls.EVENT_MANAGER.call(event);
         if (event.isCanceled()) {
             ci.cancel();
         }

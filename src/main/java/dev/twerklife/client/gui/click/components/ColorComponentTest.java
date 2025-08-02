@@ -1,6 +1,6 @@
 package dev.twerklife.client.gui.click.components;
 
-import dev.twerklife.WonderWhale;
+import dev.twerklife.essenti4ls;
 import dev.twerklife.api.utilities.RenderUtils;
 import dev.twerklife.client.gui.click.manage.Component;
 import dev.twerklife.client.gui.click.manage.Frame;
@@ -54,20 +54,20 @@ public class ColorComponentTest extends Component {
             RenderUtils.drawOutline(context.getMatrices(), this.getX() + 2 + this.alphaWidth, this.getY() + 28 + 96, this.getX() + 2 + this.alphaWidth + 2.0f, this.getY() + 39 + 96, 0.5f, Color.WHITE);
 
             // button
-            RenderUtils.drawRect(context.getMatrices(), this.getX() + 2, this.getY() + 42 + 96, this.getX() + 49, this.getY() + 53 + 96, WonderWhale.CLICK_GUI.getColor());
+            RenderUtils.drawRect(context.getMatrices(), this.getX() + 2, this.getY() + 42 + 96, this.getX() + 49, this.getY() + 53 + 96, essenti4ls.CLICK_GUI.getColor());
             context.drawTextWithShadow(mc.textRenderer, "Copy", this.getX() + 25 - mc.textRenderer.getWidth("Copy") / 2, this.getY() + 47 + 96 - mc.textRenderer.fontHeight / 2, -1);
-            RenderUtils.drawRect(context.getMatrices(), this.getX() + 51, this.getY() + 42 + 96, this.getX() + 98, this.getY() + 53 + 96, WonderWhale.CLICK_GUI.getColor());
+            RenderUtils.drawRect(context.getMatrices(), this.getX() + 51, this.getY() + 42 + 96, this.getX() + 98, this.getY() + 53 + 96, essenti4ls.CLICK_GUI.getColor());
             context.drawTextWithShadow(mc.textRenderer, "Paste", this.getX() + 75 - mc.textRenderer.getWidth("Paste") / 2, this.getY() + 47 + 96 - mc.textRenderer.fontHeight / 2, -1);
 
             // rainbow button
             if (this.value.isRainbow()) {
-                RenderUtils.drawRect(context.getMatrices(), this.getX() + 2, this.getY() + 56 + 96, this.getX() + this.getWidth() - 2, this.getY() + 70 + 96, WonderWhale.CLICK_GUI.getColor());
+                RenderUtils.drawRect(context.getMatrices(), this.getX() + 2, this.getY() + 56 + 96, this.getX() + this.getWidth() - 2, this.getY() + 70 + 96, essenti4ls.CLICK_GUI.getColor());
             }
             context.drawTextWithShadow(mc.textRenderer, "Rainbow", this.getX() + 48 - mc.textRenderer.getWidth("Rainbow") / 2, this.getY() + 59 + 96, -1);
 
             // sync button
             if (this.value.isSync()) {
-                RenderUtils.drawRect(context.getMatrices(), this.getX() + 2, this.getY() + 73 + 96, this.getX() + this.getWidth() - 2, this.getY() + 87 + 96, WonderWhale.CLICK_GUI.getColor());
+                RenderUtils.drawRect(context.getMatrices(), this.getX() + 2, this.getY() + 73 + 96, this.getX() + this.getWidth() - 2, this.getY() + 87 + 96, essenti4ls.CLICK_GUI.getColor());
             }
             context.drawTextWithShadow(mc.textRenderer, "Sync", this.getX() + 48 - mc.textRenderer.getWidth("Sync") / 2, this.getY() + 76 + 96, -1);
         }
@@ -91,10 +91,10 @@ public class ColorComponentTest extends Component {
                     this.alphaDragging = true;
                 }
                 if (this.isHoveringCopy(mouseX, mouseY)) {
-                    WonderWhale.COLOR_CLIPBOARD = this.value.getActualValue();
+                    essenti4ls.COLOR_CLIPBOARD = this.value.getActualValue();
                 }
-                if (this.isHoveringPaste(mouseX, mouseY) && WonderWhale.COLOR_CLIPBOARD != null) {
-                    this.value.setValue(WonderWhale.COLOR_CLIPBOARD);
+                if (this.isHoveringPaste(mouseX, mouseY) && essenti4ls.COLOR_CLIPBOARD != null) {
+                    this.value.setValue(essenti4ls.COLOR_CLIPBOARD);
                 }
                 if (this.isHoveringRainbow(mouseX, mouseY)) {
                     this.value.setRainbow(!this.value.isRainbow());

@@ -1,6 +1,6 @@
 package dev.twerklife.client.gui.hud;
 
-import dev.twerklife.WonderWhale;
+import dev.twerklife.essenti4ls;
 import dev.twerklife.api.manager.element.Element;
 import dev.twerklife.api.utilities.IMinecraft;
 import dev.twerklife.api.utilities.RenderUtils;
@@ -33,7 +33,7 @@ public class ElementFrame implements IMinecraft {
     }
 
     public void render(DrawContext context, int mouseX, int mouseY, float partialTicks) {
-        if (this.element != null && WonderWhale.ELEMENT_MANAGER.isElementEnabled(this.element.getName()) && mc.getWindow() != null) {
+        if (this.element != null && essenti4ls.ELEMENT_MANAGER.isElementEnabled(this.element.getName()) && mc.getWindow() != null) {
             if (this.dragging) {
                 this.x = this.dragX + (float)mouseX;
                 this.y = this.dragY + (float)mouseY;

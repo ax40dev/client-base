@@ -1,6 +1,6 @@
 package dev.twerklife.client.gui.click.components;
 
-import dev.twerklife.WonderWhale;
+import dev.twerklife.essenti4ls;
 import dev.twerklife.api.utilities.RenderUtils;
 import dev.twerklife.client.gui.click.manage.Component;
 import dev.twerklife.client.gui.click.manage.Frame;
@@ -19,7 +19,7 @@ public class EnumComponent extends Component {
 
     @Override
     public void render(DrawContext context, int mouseX, int mouseY, float partialTicks) {
-        RenderUtils.drawRect(context.getMatrices(), this.getX() + 1, this.getY(), this.getX() + this.getWidth() - 1, this.getY() + 14, WonderWhale.CLICK_GUI.getColor());
+        RenderUtils.drawRect(context.getMatrices(), this.getX() + 1, this.getY(), this.getX() + this.getWidth() - 1, this.getY() + 14, essenti4ls.CLICK_GUI.getColor());
         context.drawTextWithShadow(mc.textRenderer, this.value.getTag() + " " + Formatting.GRAY + this.value.getValue().toString(), this.getX() + 3, this.getY() + 3, -1);
     }
 

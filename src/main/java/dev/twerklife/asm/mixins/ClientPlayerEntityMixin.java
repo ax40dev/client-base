@@ -1,7 +1,7 @@
 package dev.twerklife.asm.mixins;
 
 import com.mojang.authlib.GameProfile;
-import dev.twerklife.WonderWhale;
+import dev.twerklife.essenti4ls;
 import dev.twerklife.api.utilities.IMinecraft;
 import dev.twerklife.client.events.EventMotion;
 import dev.twerklife.client.events.EventPush;
@@ -57,7 +57,7 @@ public abstract class ClientPlayerEntityMixin extends AbstractClientPlayerEntity
     @Inject(method = "sendMovementPackets", at = @At("HEAD"), cancellable = true)
     public void injectSendMovementPacketsPre(CallbackInfo ci) {
         EventTick event = new EventTick();
-        WonderWhale.EVENT_MANAGER.call(event);
+        essenti4ls.EVENT_MANAGER.call(event);
         if (event.isCanceled()) {
             ci.cancel();
         }
@@ -67,7 +67,7 @@ public abstract class ClientPlayerEntityMixin extends AbstractClientPlayerEntity
     private void onSendMovementPackets(CallbackInfo ci) {
         //thanks to mojang
         EventMotion event = new EventMotion(mc.player.getX(), mc.player.getY(), mc.player.getZ(), mc.player.getYaw(), mc.player.getPitch(), mc.player.isOnGround());
-        WonderWhale.EVENT_MANAGER.call(event);
+        essenti4ls.EVENT_MANAGER.call(event);
         double x = event.getX();
         double y = event.getY();
         double z = event.getZ();
@@ -124,7 +124,7 @@ public abstract class ClientPlayerEntityMixin extends AbstractClientPlayerEntity
     @Inject(method = "pushOutOfBlocks", at = @At("HEAD"), cancellable = true)
     private void onPushOutOfBlocks(double x, double d, CallbackInfo ci) {
         EventPush event = new EventPush();
-        WonderWhale.EVENT_MANAGER.call(event);
+        essenti4ls.EVENT_MANAGER.call(event);
         if (event.isCanceled()) {
             ci.cancel();
         }

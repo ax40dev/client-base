@@ -1,6 +1,6 @@
 package dev.twerklife.client.values.impl;
 
-import dev.twerklife.WonderWhale;
+import dev.twerklife.essenti4ls;
 import dev.twerklife.api.utilities.ColorUtils;
 import dev.twerklife.client.events.EventClient;
 import dev.twerklife.client.modules.client.ModuleColor;
@@ -56,7 +56,7 @@ public class ValueColor extends Value {
     public void setValue(Color value) {
         this.value = value;
         EventClient event = new EventClient(this);
-        WonderWhale.EVENT_MANAGER.call(event);
+        essenti4ls.EVENT_MANAGER.call(event);
     }
 
     public boolean isRainbow() {

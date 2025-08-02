@@ -1,6 +1,6 @@
 package dev.twerklife.client.gui.click.components;
 
-import dev.twerklife.WonderWhale;
+import dev.twerklife.essenti4ls;
 import dev.twerklife.api.manager.event.EventListener;
 import dev.twerklife.api.utilities.RenderUtils;
 import dev.twerklife.api.utilities.TimerUtils;
@@ -27,7 +27,7 @@ public class StringComponent extends Component implements EventListener {
 
     public StringComponent(ValueString value, int offset, Frame parent) {
         super(offset, parent);
-        WonderWhale.EVENT_MANAGER.register(this);
+        essenti4ls.EVENT_MANAGER.register(this);
         this.value = value;
     }
 
@@ -37,7 +37,7 @@ public class StringComponent extends Component implements EventListener {
             this.line = !this.line;
             this.timer.reset();
         }
-        RenderUtils.drawRect(context.getMatrices(), this.getX() + 1, this.getY(), this.getX() + this.getWidth() - 1, this.getY() + 14, WonderWhale.CLICK_GUI.getColor());
+        RenderUtils.drawRect(context.getMatrices(), this.getX() + 1, this.getY(), this.getX() + this.getWidth() - 1, this.getY() + 14, essenti4ls.CLICK_GUI.getColor());
         if (this.selecting) {
             RenderUtils.drawRect(context.getMatrices(), this.getX() + 3, this.getY() + 3, (float) (this.getX() + 3) + mc.textRenderer.getWidth(this.currentString), (float) this.getY() + mc.textRenderer.fontHeight + 3.0f, new Color(Color.LIGHT_GRAY.getRed(), Color.LIGHT_GRAY.getGreen(), Color.LIGHT_GRAY.getBlue(), 100));
         }

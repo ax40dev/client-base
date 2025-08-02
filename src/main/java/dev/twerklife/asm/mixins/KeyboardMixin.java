@@ -1,6 +1,6 @@
 package dev.twerklife.asm.mixins;
 
-import dev.twerklife.WonderWhale;
+import dev.twerklife.essenti4ls;
 import dev.twerklife.api.utilities.IMinecraft;
 import dev.twerklife.client.events.EventKey;
 import net.minecraft.client.Keyboard;
@@ -15,10 +15,10 @@ public class KeyboardMixin implements IMinecraft {
     public void injectOnKey(long window, int key, int scancode, int action, int modifiers, CallbackInfo ci) {
         if (key != -1) {
             if (mc.currentScreen == null && action == 1) {
-                WonderWhale.MODULE_MANAGER.getModules().stream().filter(m -> m.getBind() == key).forEach((a) -> a.toggle(true));
+                essenti4ls.MODULE_MANAGER.getModules().stream().filter(m -> m.getBind() == key).forEach((a) -> a.toggle(true));
             }
             EventKey event = new EventKey(key, action);
-            WonderWhale.EVENT_MANAGER.call(event);
+            essenti4ls.EVENT_MANAGER.call(event);
             if (event.isCanceled()) {
                 ci.cancel();
             }

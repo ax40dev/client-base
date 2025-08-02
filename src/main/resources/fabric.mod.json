@@ -1,28 +1,28 @@
 {
 	"schemaVersion": 1,
-	"id": "wonderwhale",
+	"id": "essenti4ls",
 	"version": "${version}",
-	"name": "WonderWhale",
-	"description": "WonderWhale is a Minecraft Client made by kisqra, heedi and zane2b2t for Minecraft Anarchy and Crystal PvP.",
+	"name": "Essenti4ls",
+	"description": "essenti4ls is a Minecraft Client made by kisqra, heedi and zane2b2t for Minecraft Anarchy and Crystal PvP.",
 	"authors": [
 		"kisqra",
 		"heedi",
 		"Zane2b2t"
 	],
 	"contact": {
-		"sources": "https://github.com/Romdotpng/WonderWhale-ng"
+		"sources": "https://github.com/Romdotpng/Essenti4ls-ng"
 	},
 	"license": "CC0-1.0",
-	"icon": "assets/wonderwhale/icon.png",
-	"accessWidener": "wonderwhale.accesswidener",
+	"icon": "assets/essenti4ls/icon.png",
+	"accessWidener": "essenti4ls.accesswidener",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"dev.twerklife.WonderWhale"
+			"dev.twerklife.essenti4ls"
 		]
 	},
 	"mixins": [
-		"wonderwhale.mixins.json"
+		"essenti4ls.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.16.9",

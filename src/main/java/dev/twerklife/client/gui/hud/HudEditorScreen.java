@@ -1,6 +1,6 @@
 package dev.twerklife.client.gui.hud;
 
-import dev.twerklife.WonderWhale;
+import dev.twerklife.essenti4ls;
 import dev.twerklife.api.manager.element.Element;
 import dev.twerklife.client.gui.click.manage.Frame;
 import net.minecraft.client.gui.DrawContext;
@@ -15,7 +15,7 @@ public class HudEditorScreen extends Screen {
 
     public HudEditorScreen() {
         super(Text.literal(""));
-        for (Element element : WonderWhale.ELEMENT_MANAGER.getElements()) {
+        for (Element element : essenti4ls.ELEMENT_MANAGER.getElements()) {
             this.addElement(element);
             element.setFrame(this.getFrame(element));
         }

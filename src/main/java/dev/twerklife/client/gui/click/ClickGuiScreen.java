@@ -1,6 +1,6 @@
 package dev.twerklife.client.gui.click;
 
-import dev.twerklife.WonderWhale;
+import dev.twerklife.essenti4ls;
 import dev.twerklife.api.manager.event.EventListener;
 import dev.twerklife.api.manager.module.Module;
 import dev.twerklife.api.utilities.RenderUtils;
@@ -21,7 +21,7 @@ public class ClickGuiScreen extends Screen implements EventListener {
 
     public ClickGuiScreen() {
         super(Text.literal("Click GUI"));
-        WonderWhale.EVENT_MANAGER.register(this);
+        essenti4ls.EVENT_MANAGER.register(this);
         int offset = 30;
         for (Module.Category category : Module.Category.values()) {
             this.frames.add(new Frame(category, offset, 20));

@@ -1,6 +1,6 @@
 package dev.twerklife.client.modules.combat;
 
-import dev.twerklife.WonderWhale;
+import dev.twerklife.essenti4ls;
 import dev.twerklife.api.manager.module.Module;
 import dev.twerklife.api.manager.module.RegisterModule;
 import dev.twerklife.api.utilities.BlockUtils;
@@ -52,7 +52,7 @@ public class ModuleSurround extends Module {
             this.disable(true);
             return;
         }
-        if (this.jumpDisable.getValue() && mc.options.jumpKey.isPressed() || this.stepDisable.getValue() && WonderWhale.MODULE_MANAGER.isModuleEnabled("Step")) {
+        if (this.jumpDisable.getValue() && mc.options.jumpKey.isPressed() || this.stepDisable.getValue() && essenti4ls.MODULE_MANAGER.isModuleEnabled("Step")) {
             this.disable(true);
             return;
         }

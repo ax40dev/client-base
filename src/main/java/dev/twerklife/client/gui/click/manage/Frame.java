@@ -1,6 +1,6 @@
 package dev.twerklife.client.gui.click.manage;
 
-import dev.twerklife.WonderWhale;
+import dev.twerklife.essenti4ls;
 import dev.twerklife.api.manager.element.Element;
 import dev.twerklife.api.manager.module.Module;
 import dev.twerklife.api.utilities.IMinecraft;
@@ -35,7 +35,7 @@ public class Frame implements IMinecraft {
         this.dragY = 0;
         this.components = new ArrayList<>();
         int offset = 16;
-        for (Module module : WonderWhale.MODULE_MANAGER.getModules(category)) {
+        for (Module module : essenti4ls.MODULE_MANAGER.getModules(category)) {
             this.components.add(new ModuleComponent(module, offset, this));
             offset += 16;
         }
@@ -53,7 +53,7 @@ public class Frame implements IMinecraft {
         this.dragY = 0;
         this.components = new ArrayList<>();
         int offset = 16;
-        for (Element element : WonderWhale.ELEMENT_MANAGER.getElements()) {
+        for (Element element : essenti4ls.ELEMENT_MANAGER.getElements()) {
             this.components.add(new ModuleComponent(element, offset, this));
             offset += 16;
         }
@@ -67,7 +67,7 @@ public class Frame implements IMinecraft {
             this.setX(mouseX - this.dragX);
             this.setY(mouseY - this.dragY);
         }
-        RenderUtils.drawRect(context.getMatrices(), this.getX() - 4, this.getY() - 3, this.getX() + this.getWidth() + 4, this.getY() + 13, WonderWhale.CLICK_GUI.getColor());
+        RenderUtils.drawRect(context.getMatrices(), this.getX() - 4, this.getY() - 3, this.getX() + this.getWidth() + 4, this.getY() + 13, essenti4ls.CLICK_GUI.getColor());
         if (this.isOpen()) {
             RenderUtils.drawRect(context.getMatrices(), this.getX() - 2, this.getY() + 13, this.getX() + this.getWidth() + 2, this.getY() + this.getHeight(), new Color(0, 0, 0, 160));
             RenderUtils.drawOutline(context.getMatrices(), this.getX() - 2, this.getY() + 13, this.getX() + this.getWidth() + 2, this.getY() + this.getHeight(), 0.5f, ModuleColor.getColor());

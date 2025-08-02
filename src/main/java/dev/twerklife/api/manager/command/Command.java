@@ -14,6 +14,10 @@ public abstract class Command implements IMinecraft {
 
     public Command() {
         RegisterCommand annotation = this.getClass().getAnnotation(RegisterCommand.class);
+        if (annotation == null) {
+            throw new IllegalStateException("Command " + getClass().getSimpleName() + " must have @RegisterCommand annotation!");
+        }
+
         this.name = annotation.name();
         this.description = annotation.description();
         this.syntax = annotation.syntax();
@@ -21,6 +25,32 @@ public abstract class Command implements IMinecraft {
     }
 
     public abstract void onCommand(String[] args);
+
+    /**
+     * Safely checks if a string can be parsed as an integer.
+     */
+    protected boolean isInteger(String input) {
+        try {
+            Integer.parseInt(input);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
+
+    /**
+     * Sends a formatted error message when arguments are invalid.
+     */
+    protected void sendInvalidArgsError() {
+        ChatUtils.sendMessage("§cInvalid arguments! Usage: §7" + this.getSyntax());
+    }
+
+    /**
+     * Sends a message when the command requires a player (not usable in console).
+     */
+    protected void sendPlayerOnlyCommandError() {
+        ChatUtils.sendMessage("§cThis command can only be used by a player!");
+    }
 
     public String getName() {
         return this.name;
@@ -39,6 +69,6 @@ public abstract class Command implements IMinecraft {
     }
 
     public void sendSyntax() {
-        ChatUtils.sendMessage(this.getSyntax());
+        ChatUtils.sendMessage("§eUsage: §7" + this.getSyntax());
     }
 }

@@ -1,6 +1,6 @@
 package dev.twerklife.client.commands;
 
-import dev.twerklife.WonderWhale;
+import dev.twerklife.essenti4ls;
 import dev.twerklife.api.manager.command.Command;
 import dev.twerklife.api.manager.command.RegisterCommand;
 import dev.twerklife.api.utilities.ChatUtils;
@@ -11,10 +11,10 @@ public class CommandConfig extends Command {
     public void onCommand(String[] args) {
         if (args.length == 1) {
             if (args[0].equalsIgnoreCase("load")) {
-                WonderWhale.CONFIG_MANAGER.load();
+                essenti4ls.CONFIG_MANAGER.load();
                 ChatUtils.sendMessage("Successfully loaded configuration.", "Config");
             } else if (args[0].equalsIgnoreCase("save")) {
-                WonderWhale.CONFIG_MANAGER.save();
+                essenti4ls.CONFIG_MANAGER.save();
                 ChatUtils.sendMessage("Successfully saved configuration.", "Config");
             } else {
                 this.sendSyntax();

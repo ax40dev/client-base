@@ -1,6 +1,6 @@
 package dev.twerklife.client.values.impl;
 
-import dev.twerklife.WonderWhale;
+import dev.twerklife.essenti4ls;
 import dev.twerklife.client.events.EventClient;
 import dev.twerklife.client.values.Value;
 
@@ -47,7 +47,7 @@ public class ValueNumber extends Value {
     public void setValue(Number value) {
         this.value = value;
         EventClient event = new EventClient(this);
-        WonderWhale.EVENT_MANAGER.call(event);
+        essenti4ls.EVENT_MANAGER.call(event);
     }
 
     public Number getMaximum() {

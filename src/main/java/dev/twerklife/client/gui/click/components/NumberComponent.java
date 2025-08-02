@@ -1,7 +1,7 @@
 package dev.twerklife.client.gui.click.components;
 
 import com.sun.jna.platform.KeyboardUtils;
-import dev.twerklife.WonderWhale;
+import dev.twerklife.essenti4ls;
 import dev.twerklife.api.utilities.MathUtils;
 import dev.twerklife.api.utilities.RenderUtils;
 import dev.twerklife.api.utilities.TimerUtils;
@@ -9,7 +9,6 @@ import dev.twerklife.client.gui.click.manage.Component;
 import dev.twerklife.client.gui.click.manage.Frame;
 import dev.twerklife.client.values.impl.ValueNumber;
 import net.minecraft.client.gui.DrawContext;
-import net.minecraft.client.util.InputUtil;
 import net.minecraft.util.Formatting;
 
 import java.awt.*;
@@ -37,7 +36,7 @@ public class NumberComponent extends Component {
             this.line = !this.line;
             this.timer.reset();
         }
-        RenderUtils.drawRect(context.getMatrices(),this.getX() + 1, this.getY(), (float)(this.getX() + 1) + this.sliderWidth, this.getY() + 14, WonderWhale.CLICK_GUI.getColor());
+        RenderUtils.drawRect(context.getMatrices(),this.getX() + 1, this.getY(), (float)(this.getX() + 1) + this.sliderWidth, this.getY() + 14, essenti4ls.CLICK_GUI.getColor());
         if (this.selecting) {
             RenderUtils.drawRect(context.getMatrices(),(float)(this.getX() + 3) + mc.textRenderer.getWidth(this.value.getTag() + " "), this.getY() + 3, (float)(this.getX() + 3) + mc.textRenderer.getWidth(this.value.getTag() + " ") + mc.textRenderer.getWidth(this.currentString), (float)this.getY() + mc.textRenderer.fontHeight + 3.0f, new Color(Color.LIGHT_GRAY.getRed(), Color.LIGHT_GRAY.getGreen(), Color.LIGHT_GRAY.getBlue(), 100));
         }

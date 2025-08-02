@@ -1,6 +1,6 @@
 package dev.twerklife.client.commands;
 
-import dev.twerklife.WonderWhale;
+import dev.twerklife.essenti4ls;
 import dev.twerklife.api.manager.command.Command;
 import dev.twerklife.api.manager.command.RegisterCommand;
 import dev.twerklife.api.manager.module.Module;
@@ -15,12 +15,12 @@ public class CommandDrawn extends Command {
         if (args.length == 2) {
             boolean found = false;
             if (args[0].equalsIgnoreCase("all")) {
-                for (Module m : WonderWhale.MODULE_MANAGER.getModules()) {
+                for (Module m : essenti4ls.MODULE_MANAGER.getModules()) {
                     m.setDrawn(Boolean.parseBoolean(args[1]));
                 }
                 ChatUtils.sendMessage(ModuleCommands.getSecondColor() + "All modules" + ModuleCommands.getFirstColor() + " are now " + (Boolean.parseBoolean(args[1]) ? Formatting.GREEN + "shown" : Formatting.RED + "hidden") + ModuleCommands.getFirstColor() + ".");
             } else {
-                for (Module module : WonderWhale.MODULE_MANAGER.getModules()) {
+                for (Module module : essenti4ls.MODULE_MANAGER.getModules()) {
                     if (!module.getName().equalsIgnoreCase(args[0])) continue;
                     found = true;
                     module.setDrawn(Boolean.parseBoolean(args[1]));

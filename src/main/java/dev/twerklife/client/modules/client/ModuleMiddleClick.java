@@ -1,6 +1,6 @@
 package dev.twerklife.client.modules.client;
 
-import dev.twerklife.WonderWhale;
+import dev.twerklife.essenti4ls;
 import dev.twerklife.api.manager.module.Module;
 import dev.twerklife.api.manager.module.RegisterModule;
 import dev.twerklife.api.utilities.ChatUtils;
@@ -58,13 +58,13 @@ public class ModuleMiddleClick extends Module {
             }
             if (object.getType() == HitResult.Type.ENTITY && (entity = ((EntityHitResult) object).getEntity()) instanceof PlayerEntity && !(entity instanceof ArmorStandEntity) && !mc.player.isDead() && mc.player.canSee(entity)) {
                 String ID = entity.getName().getString();
-                if (mc.mouse.wasMiddleButtonClicked() && mc.currentScreen == null && !WonderWhale.FRIEND_MANAGER.isFriend(ID) && this.delay > 10) {
-                    WonderWhale.FRIEND_MANAGER.addFriend(ID);
+                if (mc.mouse.wasMiddleButtonClicked() && mc.currentScreen == null && !essenti4ls.FRIEND_MANAGER.isFriend(ID) && this.delay > 10) {
+                    essenti4ls.FRIEND_MANAGER.addFriend(ID);
                     ChatUtils.sendMessage(Formatting.GREEN + "Added " + ModuleCommands.getSecondColor() + ID + ModuleCommands.getFirstColor() + " as friend");
                     this.delay = 0;
                 }
-                if (mc.mouse.wasMiddleButtonClicked() && mc.currentScreen == null && WonderWhale.FRIEND_MANAGER.isFriend(ID) && this.delay > 10) {
-                    WonderWhale.FRIEND_MANAGER.removeFriend(ID);
+                if (mc.mouse.wasMiddleButtonClicked() && mc.currentScreen == null && essenti4ls.FRIEND_MANAGER.isFriend(ID) && this.delay > 10) {
+                    essenti4ls.FRIEND_MANAGER.removeFriend(ID);
                     ChatUtils.sendMessage(Formatting.RED + "Removed " + ModuleCommands.getSecondColor() + ID + ModuleCommands.getFirstColor() + " as friend");
                     this.delay = 0;
                 }

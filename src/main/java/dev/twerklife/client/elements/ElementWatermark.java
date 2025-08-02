@@ -12,7 +12,7 @@ import dev.twerklife.client.values.impl.ValueString;
 public class ElementWatermark extends Element {
     private final ValueCategory watermarkCategory = new ValueCategory("Watermark", "The category for the watermark.");
     private final ValueEnum mode = new ValueEnum("Mode", "Mode", "The mode for the watermark.", this.watermarkCategory, Modes.Normal);
-    private final ValueString customValue = new ValueString("WatermarkValue", "Value", "The value for the Custom Watermark.", this.watermarkCategory, "WonderWhale");
+    private final ValueString customValue = new ValueString("WatermarkValue", "Value", "The value for the Custom Watermark.", this.watermarkCategory, "essenti4ls");
     private final ValueCategory versionCategory = new ValueCategory("Version", "The category for the version.");
     private final ValueEnum version = new ValueEnum("Version", "Version", "Renders the Version on the watermark.", this.versionCategory, Versions.Normal);
 
@@ -25,7 +25,7 @@ public class ElementWatermark extends Element {
     }
 
     private String getText() {
-        return (this.mode.getValue().equals(Modes.Custom) ? this.customValue.getValue() : "WonderWhale") + (!this.version.getValue().equals(Versions.None) ? " " + (this.version.getValue().equals(Versions.Normal) ? "v" : "") + "190622" : "");
+        return (this.mode.getValue().equals(Modes.Custom) ? this.customValue.getValue() : "essenti4ls") + (!this.version.getValue().equals(Versions.None) ? " " + (this.version.getValue().equals(Versions.Normal) ? "v" : "") + "190622" : "");
     }
 
     public enum Versions {

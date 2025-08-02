@@ -1,6 +1,6 @@
 package dev.twerklife.client.modules.client;
 
-import dev.twerklife.WonderWhale;
+import dev.twerklife.essenti4ls;
 import dev.twerklife.api.manager.module.Module;
 import dev.twerklife.api.manager.module.RegisterModule;
 import dev.twerklife.client.values.impl.ValueBoolean;
@@ -20,10 +20,10 @@ public class ModuleGUI extends Module {
 
     @Override
     public void onEnable() {
-        if (mc.player == null || mc.world == null || WonderWhale.CLICK_GUI == null) {
+        if (mc.player == null || mc.world == null || essenti4ls.CLICK_GUI == null) {
             this.disable(false);
             return;
         }
-        mc.setScreen(WonderWhale.CLICK_GUI);
+        mc.setScreen(essenti4ls.CLICK_GUI);
     }
 }

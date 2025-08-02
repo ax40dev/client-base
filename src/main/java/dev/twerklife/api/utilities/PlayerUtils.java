@@ -1,6 +1,6 @@
 package dev.twerklife.api.utilities;
 
-import dev.twerklife.WonderWhale;
+import dev.twerklife.essenti4ls;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.math.BlockPos;
 
@@ -11,7 +11,7 @@ public class PlayerUtils implements IMinecraft {
     public static PlayerEntity getTarget(float range) {
         PlayerEntity optimalPlayer = null;
         for (PlayerEntity player : new ArrayList<>(mc.world.getPlayers())) {
-            if (!(mc.player.distanceTo(player) <= range) || WonderWhale.FRIEND_MANAGER.isFriend(player.getName().getString()) || player.isDead() || player.getHealth() <= 0.0f && player == mc.player || player.getName().equals(mc.player.getName()) || player.hurtTime != 0) continue;
+            if (!(mc.player.distanceTo(player) <= range) || essenti4ls.FRIEND_MANAGER.isFriend(player.getName().getString()) || player.isDead() || player.getHealth() <= 0.0f && player == mc.player || player.getName().equals(mc.player.getName()) || player.hurtTime != 0) continue;
             if (optimalPlayer == null) {
                 optimalPlayer = player;
                 continue;

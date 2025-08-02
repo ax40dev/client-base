@@ -1,6 +1,6 @@
 package dev.twerklife.api.manager.element;
 
-import dev.twerklife.WonderWhale;
+import dev.twerklife.essenti4ls;
 import dev.twerklife.api.manager.event.EventListener;
 import dev.twerklife.client.elements.ElementFriends;
 import dev.twerklife.client.elements.ElementPlayerList;
@@ -16,7 +16,7 @@ public class ElementManager implements EventListener {
     private final ArrayList<Element> elements;
 
     public ElementManager() {
-        WonderWhale.EVENT_MANAGER.register(this);
+        essenti4ls.EVENT_MANAGER.register(this);
         this.elements = new ArrayList<>();
         //write elements here
         this.register(new ElementFriends());

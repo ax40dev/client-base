@@ -1,7 +1,7 @@
 package dev.twerklife.asm.mixins;
 
 import com.mojang.blaze3d.systems.RenderSystem;
-import dev.twerklife.WonderWhale;
+import dev.twerklife.essenti4ls;
 import dev.twerklife.client.events.EventRender3D;
 import net.minecraft.client.render.*;
 import net.minecraft.client.util.math.MatrixStack;
@@ -16,7 +16,7 @@ public class WorldRendererMixin {
     @Inject(method = "render", at = @At("HEAD"), cancellable = true)
     public void injectRenderPre(RenderTickCounter tickCounter, boolean renderBlockOutline, Camera camera, GameRenderer gameRenderer, LightmapTextureManager lightmapTextureManager, Matrix4f matrix4f, Matrix4f matrix4f2, CallbackInfo ci) {
         EventRender3D event = new EventRender3D(tickCounter.getTickDelta(true), new MatrixStack());
-        WonderWhale.EVENT_MANAGER.call(event);
+        essenti4ls.EVENT_MANAGER.call(event);
         if (event.isCanceled()) {
             ci.cancel();
         }

@@ -1,6 +1,6 @@
 package dev.twerklife.api.manager.module;
 
-import dev.twerklife.WonderWhale;
+import dev.twerklife.essenti4ls;
 import dev.twerklife.api.manager.event.EventListener;
 import dev.twerklife.api.utilities.ChatUtils;
 import dev.twerklife.api.utilities.IMinecraft;
@@ -42,7 +42,7 @@ public abstract class Module implements IMinecraft, EventListener {
             this.values = new ArrayList<>();
             if (this.persistent) {
                 this.setToggled(true);
-                WonderWhale.EVENT_MANAGER.register(this);
+                essenti4ls.EVENT_MANAGER.register(this);
             }
             this.randomColor = this.generateRandomColor();
         }
@@ -163,7 +163,7 @@ public abstract class Module implements IMinecraft, EventListener {
     public void enable(boolean message) {
         if (!this.persistent) {
             this.setToggled(true);
-            WonderWhale.EVENT_MANAGER.register(this);
+            essenti4ls.EVENT_MANAGER.register(this);
             if (message) {
                 this.doToggleMessage();
             }
@@ -174,7 +174,7 @@ public abstract class Module implements IMinecraft, EventListener {
     public void disable(boolean message) {
         if (!this.persistent) {
             this.setToggled(false);
-            WonderWhale.EVENT_MANAGER.unregister(this);
+            essenti4ls.EVENT_MANAGER.unregister(this);
             if (message) {
                 this.doToggleMessage();
             }
